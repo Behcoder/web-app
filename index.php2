@@ -1,0 +1,96 @@
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="./logo.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>به نت افراز خوش آمدید</title>
+</head>
+
+<body>
+  <div id="container">
+    <div id="welcome-section">
+      <p>
+        <strong>تبریک می گوییم!</strong><br>
+        مشاهده‌ ی این صفحه بدین معناست که سرویس میزبانی شما فعال بوده و به درستی به دامنه‌ی شما متصل گردیده است،
+        اطلاعات
+        کامل
+        سرویس شما قبلا به صورت ایمیل برای شما ارسال شده است؛ هم اکنون شما می‌توانید نسبت به راه اندازی وب سایت خود
+        اقدام
+        کنید!
+      </p>
+    </div>
+    <div id="right-side">
+      <div id="timeline">
+        <ul>
+          <li>
+            <div class="content">
+              <h3> آیا وب سایت خود را از قبل طراحی و آماده کرده اید؟</h3>
+              <p>
+                در این صورت به سادگی میتوانید محتوای از قبل طراحی شده را با استفاده از آموزش زیر بر روی
+                سرویس جدید خود بارگذاری کنید.
+              </p>
+              <a href="https://www.netafraz.com/blog/transfer-data-from-localhost-to-webhosting/" target="_blank">
+                <button>مشاهده آموزش</button>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="content">
+              <h3> آیا مایل به انتقال وب سایت خود از سرویس دهنده دیگر می باشید؟</h3>
+              <p>
+                بخش پشتیبانی شرکت نت افراز اطلاعات شما را به رایگان به سرویس جدید شما منتقل می کند،
+                کافیست
+                تا درخواست خود را از طریق لینک زیر به اطلاع بخش پشتیبانی برسانید.
+              </p>
+              <a href="https://clients.netafraz.com/submitticket.php?step=2&deptid=13" target="_blank">
+                <button>ارسال درخواست انتقال</button>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="content">
+              <h3>آیا مایل به راه اندازی یک وب سایت جدید می باشید؟</h3>
+              <p>
+                شما میتوانید چندین نرم افزار محبوب مدیریت محتوا از جمله "وردپرس" را به راحتی بر
+                روی
+                سرویس میزبانی خود نصب نمایید. برای این منظور کافیست مطابق با آموزش زیر در کمترین زمان
+                ممکن
+                نرم افزار دلخواه خود را بر روی سرویس خود نصب نمایید.
+              </p>
+              <a href="https://www.netafraz.com/blog/how-to-auto-install-cms-like-wordpress-in-directadmin/"
+                target=" _blank">
+                <button>مشاهده آموزش</button>
+              </a>
+            </div>
+          </li>
+          <li>
+            <div class="content">
+              <h3>نیاز به کمک بیشتر دارید؟</h3>
+              <p>
+                تیم پشتیبانی شرکت نت افراز در هر زمان آماده یاری رساندن به شما در راه اندازی و مدیریت وب
+                سایت شما می باشد. کافیست تا از طریق آموزش زیر نسبت به ارسال درخواست به بخش پشتیبانی از
+                طریق
+                تیکت اقدام نمایید.
+              </p>
+              <a href="https://www.netafraz.com/blog/how-to-submit-a-support-ticket-in-netafraz/" target="_blank">
+                <button>مشاهده آموزش</button>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="left-side">
+      <div id="card">
+        <a href="https://www.netafraz.com/" target="_blank">
+          <p>به خانواده نت افراز خوش آمدید !</p>
+          <img src="./logo.png" alt="نت افراز" width="350">
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

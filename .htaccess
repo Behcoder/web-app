@@ -1,0 +1,80 @@
+# Flutter Web PWA .htaccess for Apache
+
+# Disable MultiViews to prevent content-negotiation interfering with SPA routes
+<IfModule mod_negotiation.c>
+	Options -MultiViews
+</IfModule>
+
+# Ensure UTF-8 by default
+AddDefaultCharset UTF-8
+
+# MIME types
+AddType application/javascript .js .mjs
+AddType application/wasm .wasm
+AddType application/json .json
+AddType text/css .css
+
+# Compression
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# CORS for web fonts
+<IfModule mod_headers.c>
+	<FilesMatch "\.(eot|ttf|otf|woff|woff2)$">
+		Header set Access-Control-Allow-Origin "*"
+	</FilesMatch>
+</IfModule>
+
+# Caching strategy
+<IfModule mod_expires.c>
+	ExpiresActive On
+	# Immutable long-term cache for static assets
+	ExpiresByType application/javascript "access plus 1 year"
+	ExpiresByType text/css "access plus 1 year"
+	ExpiresByType image/png "access plus 1 year"
+	ExpiresByType image/jpeg "access plus 1 year"
+	ExpiresByType image/webp "access plus 1 year"
+	ExpiresByType image/svg+xml "access plus 1 year"
+	ExpiresByType font/woff2 "access plus 1 year"
+	ExpiresByType application/wasm "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+	# Aggressive caching for hashed assets
+	<FilesMatch "\.(js|mjs|css|png|jpg|jpeg|webp|svg|woff2|wasm)$">
+		Header set Cache-Control "public, max-age=31536000, immutable"
+	</FilesMatch>
+
+	# No cache for HTML entry and PWA critical files
+	<FilesMatch "^(index\.html|manifest\.json|sw\.js|flutter_service_worker\.js|version\.json)$">
+		Header set Cache-Control "no-cache, no-store, must-revalidate"
+		Header set Pragma "no-cache"
+		Header set Expires "0"
+	</FilesMatch>
+</IfModule>
+
+# SPA routing: send all non-file/non-dir requests to index.html
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	# Allow direct access to known files
+	RewriteCond %{REQUEST_FILENAME} -f [OR]
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteRule ^ - [L]
+
+	# Do not rewrite service worker and PWA files
+	RewriteCond %{REQUEST_URI} ^/(sw\.js|flutter_service_worker\.js|manifest\.json|favicon\.png|robots\.txt|sitemap\.xml|icons/|assets/|canvaskit/|flutter\.js)$ [NC]
+	RewriteRule ^ - [L]
+
+	# Otherwise, route to the app shell
+	RewriteRule . /index.html [L]
+</IfModule>
+
+# CORS برای تصاویر محصولات
+<IfModule mod_headers.c>
+    <FilesMatch "\.(png|jpe?g|webp|gif|svg)$">
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, OPTIONS"
+        Header set Access-Control-Allow-Headers "Origin, Accept, Content-Type"
+    </FilesMatch>
+</IfModule>
